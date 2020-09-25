@@ -1,6 +1,7 @@
 <div class="row" style="margin-top: 10px;">
     <div class="col-xs-10">
-        <app-shopping-list-edit></app-shopping-list-edit>
+        <app-shopping-list-edit (onAddIngredient)="ingredients.push($event)"
+        (onClearIngredients)="ingredients.length = 0"></app-shopping-list-edit>
         <hr>
         <ul class="list-group">
             <a style="cursor: pointer;" 
