@@ -4,12 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="row" *ngIf="showRecipe">
-        <app-recipe></app-recipe>
-      </div>
-      <div class="row" *ngIf="showShppingList">
-        <app-shopping-list></app-shopping-list>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

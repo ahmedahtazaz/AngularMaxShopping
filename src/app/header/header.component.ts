@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,20 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output('onRecipesClick') recipeClick = new EventEmitter<any>();
-  @Output('onShoppingListClick') shoppingClick = new EventEmitter<any>();
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onRecipesClick = () => {
-    this.recipeClick.emit();
-  }
-
-  onShoppingListClick = () => {
-    this.shoppingClick.emit();
   }
 
 }
