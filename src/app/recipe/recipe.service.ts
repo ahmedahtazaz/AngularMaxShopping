@@ -15,4 +15,6 @@ export class RecipeService {
   constructor() { }
 
   getRecipes = () => this.recipes.slice();
+
+  getRecipe = id => this.recipes[id];
 }
