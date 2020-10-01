@@ -10,6 +10,7 @@ import { Recipe } from '../recipe.modal';
 export class RecipeItemComponent implements OnInit {
 
   @Input('recipe') recipe: Recipe;
+  @Input('id') id: number;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -18,7 +19,6 @@ export class RecipeItemComponent implements OnInit {
 
   onRecipeClick = () => {
     this.recipeService.recipeSelected.emit(this.recipe);
-    
   }
 
 }
