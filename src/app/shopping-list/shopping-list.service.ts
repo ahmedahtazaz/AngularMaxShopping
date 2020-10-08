@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.modal';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ShoppingListService {
     new Ingredient('Apple', 5), new Ingredient('Tomato', 10)
   ];
 
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
   
   constructor() { }
 
@@ -18,7 +19,7 @@ export class ShoppingListService {
 
   addIngredient = ingredient => {
     this.ingredients.push(ingredient);
-    this.ingredientsChanged.emit(this.getIngredients());
+    this.ingredientsChanged.next(this.getIngredients());
   }
 
   deleteIngredient = (id: number) => {
@@ -27,11 +28,11 @@ export class ShoppingListService {
 
   clearIngredients = () => {
     this.ingredients.length = 0;
-    this.ingredientsChanged.emit(this.getIngredients());
+    this.ingredientsChanged.next(this.getIngredients());
   }
 
   addIngredients = (ingredients: Ingredient[]) => {
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this.getIngredients());
+    this.ingredientsChanged.next(this.getIngredients());
   }
 }
